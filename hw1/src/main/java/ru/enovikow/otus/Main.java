@@ -1,4 +1,4 @@
-package ru.enovikow;
+package ru.enovikow.otus;
 
 import ru.enovikow.otus.utils.XUtils;
 
