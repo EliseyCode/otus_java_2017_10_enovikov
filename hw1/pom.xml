@@ -19,6 +19,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <com.google.guava.version>23.0</com.google.guava.version>
+        <app.main.class>ru.enovikow.otus.Main</app.main.class>
     </properties>
 
     <dependencies>
@@ -46,29 +47,28 @@
         </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>3.0.0</version>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.1.0</version>
             <executions>
                 <execution>
-                    <id>my-maven-assembly-plugin</id>
-                    <phase>package</phase>
                     <goals>
-                        <goal>single</goal>
+                        <goal>shade</goal>
                     </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <manifestEntries>
+                                    <Main-Class>${app.main.class}</Main-Class>
+                                    <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                    <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                </manifestEntries>
+                            </transformer>
+                        </transformers>
+                    </configuration>
                 </execution>
             </executions>
-            <configuration>
-                <appendAssemblyId>false</appendAssemblyId>
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-                <archive>
-                    <manifest>
-                        <mainClass>ru.enovikow.otus.Main</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
         </plugin>
+
     </plugins>
 </build>
 
