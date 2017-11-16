@@ -68,7 +68,7 @@ public class MyArrayList<T> implements List<T> {
     }
 
     public void clear() {
-
+        throw new NotImplementedException();
     }
 
     public T get(int index) {
@@ -87,7 +87,7 @@ public class MyArrayList<T> implements List<T> {
     }
 
     public void add(int index, T element) {
-
+        throw new NotImplementedException();
     }
 
     public T remove(int index) {
@@ -172,7 +172,7 @@ public class MyArrayList<T> implements List<T> {
 
         @Override
         public void remove() {
-
+            throw new NotImplementedException();
         }
 
         @Override
@@ -189,7 +189,7 @@ public class MyArrayList<T> implements List<T> {
 
         @Override
         public void add(T t) {
-
+            throw new NotImplementedException();
         }
     }
 
