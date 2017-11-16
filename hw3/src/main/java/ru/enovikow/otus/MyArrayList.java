@@ -1,5 +1,7 @@
 package ru.enovikow.otus;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.*;
 
 public class MyArrayList<T> implements List<T> {
@@ -22,11 +24,11 @@ public class MyArrayList<T> implements List<T> {
     }
 
     public boolean contains(Object o) {
-        return false;
+        throw new NotImplementedException();
     }
 
     public Iterator<T> iterator() {
-        return null;
+        throw new NotImplementedException();
     }
 
     public Object[] toArray() {
@@ -34,7 +36,7 @@ public class MyArrayList<T> implements List<T> {
     }
 
     public <T1> T1[] toArray(T1[] a) {
-        return null;
+        throw new NotImplementedException();
     }
 
     public boolean add(T t) {
@@ -43,28 +45,26 @@ public class MyArrayList<T> implements List<T> {
         return true;
     }
 
-    public boolean remove(Object o) {
-        return false;
-    }
+    public boolean remove(Object o) { throw new NotImplementedException();}
 
     public boolean containsAll(Collection<?> c) {
-        return false;
+        throw new NotImplementedException();
     }
 
     public boolean addAll(Collection<? extends T> c) {
-        return false;
+        throw new NotImplementedException();
     }
 
     public boolean addAll(int index, Collection<? extends T> c) {
-        return false;
+        throw new NotImplementedException();
     }
 
     public boolean removeAll(Collection<?> c) {
-        return false;
+        throw new NotImplementedException();
     }
 
     public boolean retainAll(Collection<?> c) {
-        return false;
+        throw new NotImplementedException();
     }
 
     public void clear() {
@@ -91,15 +91,15 @@ public class MyArrayList<T> implements List<T> {
     }
 
     public T remove(int index) {
-        return null;
+        throw new NotImplementedException();
     }
 
     public int indexOf(Object o) {
-        return 0;
+        throw new NotImplementedException();
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        throw new NotImplementedException();
     }
 
     public ListIterator<T> listIterator() {
@@ -107,11 +107,11 @@ public class MyArrayList<T> implements List<T> {
     }
 
     public ListIterator<T> listIterator(int index) {
-        return null;
+        throw new NotImplementedException();
     }
 
     public List<T> subList(int fromIndex, int toIndex) {
-        return null;
+        throw new NotImplementedException();
     }
 
     private void ensureCapacity(int minCapacity) {
@@ -152,22 +152,22 @@ public class MyArrayList<T> implements List<T> {
 
         @Override
         public boolean hasPrevious() {
-            return false;
+            throw new NotImplementedException();
         }
 
         @Override
         public T previous() {
-            return null;
+            throw new NotImplementedException();
         }
 
         @Override
         public int nextIndex() {
-            return 0;
+            throw new NotImplementedException();
         }
 
         @Override
         public int previousIndex() {
-            return 0;
+            throw new NotImplementedException();
         }
 
         @Override
