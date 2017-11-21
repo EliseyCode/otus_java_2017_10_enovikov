@@ -5,11 +5,11 @@ import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
 import java.util.List;
 
-public class GCMonitor {
+class GCMonitor {
     private Notification myNotificationListener = new Notification();
 
 
-    public void getGC() {
+    void getGC() {
         List<GarbageCollectorMXBean> garbageCollectorMXBeanList = ManagementFactory.getGarbageCollectorMXBeans();
 
         for (GarbageCollectorMXBean mxBean : garbageCollectorMXBeanList) {

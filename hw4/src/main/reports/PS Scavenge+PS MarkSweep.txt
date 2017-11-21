@@ -1,0 +1,66 @@
+-Xms256m
+-Xmx256m
+-XX:MaxMetaspaceSize=256m
+-XX:+UseParallelGC
+
+====================== 1 minute application work ======================
+
+GCInfo{gcName='PS Scavenge', gcStartTime=27205, gcEndTime=27259, gcDuration=54}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 1 Minor total duration 54
+
+====================== 2 minute application work ======================
+
+GCInfo{gcName='PS Scavenge', gcStartTime=27205, gcEndTime=27259, gcDuration=54}
+GCInfo{gcName='PS Scavenge', gcStartTime=63289, gcEndTime=63375, gcDuration=86}
+GCInfo{gcName='PS Scavenge', gcStartTime=99436, gcEndTime=99539, gcDuration=103}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 3 Minor total duration 243
+
+====================== 3 minute application work ======================
+
+GCInfo{gcName='PS Scavenge', gcStartTime=27205, gcEndTime=27259, gcDuration=54}
+GCInfo{gcName='PS Scavenge', gcStartTime=63289, gcEndTime=63375, gcDuration=86}
+GCInfo{gcName='PS Scavenge', gcStartTime=99436, gcEndTime=99539, gcDuration=103}
+GCInfo{gcName='PS Scavenge', gcStartTime=135586, gcEndTime=135680, gcDuration=94}
+GCInfo{gcName='PS Scavenge', gcStartTime=171716, gcEndTime=171819, gcDuration=103}
+GCInfo{gcName='PS MarkSweep', gcStartTime=171819, gcEndTime=172900, gcDuration=1081}
+Major total cleanUp 1 Major total duration 1081
+Minor total cleanUp 5 Minor total duration 440
+
+====================== 4 minute application work ======================
+
+GCInfo{gcName='PS Scavenge', gcStartTime=27205, gcEndTime=27259, gcDuration=54}
+GCInfo{gcName='PS Scavenge', gcStartTime=63289, gcEndTime=63375, gcDuration=86}
+GCInfo{gcName='PS Scavenge', gcStartTime=99436, gcEndTime=99539, gcDuration=103}
+GCInfo{gcName='PS Scavenge', gcStartTime=135586, gcEndTime=135680, gcDuration=94}
+GCInfo{gcName='PS Scavenge', gcStartTime=171716, gcEndTime=171819, gcDuration=103}
+GCInfo{gcName='PS MarkSweep', gcStartTime=171819, gcEndTime=172900, gcDuration=1081}
+GCInfo{gcName='PS MarkSweep', gcStartTime=217983, gcEndTime=219329, gcDuration=1346}
+Major total cleanUp 2 Major total duration 2427
+Minor total cleanUp 5 Minor total duration 440
+
+====================== 5 minute application work ======================
+
+GCInfo{gcName='PS Scavenge', gcStartTime=27205, gcEndTime=27259, gcDuration=54}
+GCInfo{gcName='PS Scavenge', gcStartTime=63289, gcEndTime=63375, gcDuration=86}
+GCInfo{gcName='PS Scavenge', gcStartTime=99436, gcEndTime=99539, gcDuration=103}
+GCInfo{gcName='PS Scavenge', gcStartTime=135586, gcEndTime=135680, gcDuration=94}
+GCInfo{gcName='PS Scavenge', gcStartTime=171716, gcEndTime=171819, gcDuration=103}
+GCInfo{gcName='PS MarkSweep', gcStartTime=171819, gcEndTime=172900, gcDuration=1081}
+GCInfo{gcName='PS MarkSweep', gcStartTime=217983, gcEndTime=219329, gcDuration=1346}
+GCInfo{gcName='PS MarkSweep', gcStartTime=264379, gcEndTime=265071, gcDuration=692}
+GCInfo{gcName='PS MarkSweep', gcStartTime=283100, gcEndTime=283825, gcDuration=725}
+GCInfo{gcName='PS MarkSweep', gcStartTime=292837, gcEndTime=293544, gcDuration=707}
+Major total cleanUp 5 Major total duration 4551
+Minor total cleanUp 5 Minor total duration 440
+
+
+                        Stop-the-world
+
+GCInfo{gcName='PS Scavenge', gcStartTime=27205, gcEndTime=27259, gcDuration=54}
+GCInfo{gcName='PS Scavenge', gcStartTime=63289, gcEndTime=63375, gcDuration=86}
+GCInfo{gcName='PS Scavenge', gcStartTime=99436, gcEndTime=99539, gcDuration=103}
+GCInfo{gcName='PS Scavenge', gcStartTime=135586, gcEndTime=135680, gcDuration=94}
+GCInfo{gcName='PS Scavenge', gcStartTime=171716, gcEndTime=171819, gcDuration=103}
+Exception in thread "Thread-0"

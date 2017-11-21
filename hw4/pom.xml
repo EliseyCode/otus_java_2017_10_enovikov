@@ -12,8 +12,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <!--<com.google.guava.version>23.0</com.google.guava.version>-->
-        <!--<app.main.class>ru.enovikow.otus.Main</app.main.class>-->
     </properties>
 
 </project>

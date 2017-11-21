@@ -6,14 +6,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * -Xms20m
- * -Xmx20m
- * -XX:-UseParNewGC
- * -XX:+UseConcMarkSweepGC
+ * -Xms256m
+ * -Xmx256m
  */
 
 public class Main {
-
 
     public static void main(String[] args) throws InterruptedException {
         GCMonitor monitor = new GCMonitor();
@@ -27,14 +24,16 @@ public class Main {
                 TimeUnit.MINUTES
         );
 
-        FillList list = new FillList();
+        new FillList();
     }
 
-    static void getNotifications(GCMonitor monitor) {
-        System.out.println("Checking GC activity");
-        List<GCInfo> list = monitor.getMyNotificationListener().getNotifications();// notifications.getNotifications();
-        for (GCInfo info : list) {
-            System.out.println(info);
-        }
+    private static void getNotifications(GCMonitor monitor) {
+        List<GCInfo> list = monitor.getMyNotificationListener().getNotifications();
+        list.forEach(System.out::println);
+
+        System.out.println("Major total cleanUp " + GCInfo.getMajorTotalCleanUp() + " Major total duration " + GCInfo.getMajorTotalDuration());
+        System.out.println("Minor total cleanUp " + GCInfo.getMinorTotalCleanUp() + " Minor total duration " + GCInfo.getMinorTotalDuration());
+
+//        list.stream().filter(art -> list.forEach())
     }
 }

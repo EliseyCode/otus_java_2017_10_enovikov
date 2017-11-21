@@ -1,0 +1,115 @@
+-Xms256m
+-Xmx256m
+-XX:MaxMetaspaceSize=256m
+-XX:+UseG1GC
+
+====================== 1 minute application work ======================
+
+GCInfo{gcName='G1 Young Generation', gcStartTime=139, gcEndTime=157, gcDuration=18}
+GCInfo{gcName='G1 Young Generation', gcStartTime=9188, gcEndTime=9229, gcDuration=41}
+GCInfo{gcName='G1 Young Generation', gcStartTime=18258, gcEndTime=18284, gcDuration=26}
+GCInfo{gcName='G1 Young Generation', gcStartTime=27320, gcEndTime=27354, gcDuration=34}
+GCInfo{gcName='G1 Young Generation', gcStartTime=45396, gcEndTime=45434, gcDuration=38}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 5 Minor total duration 157
+
+====================== 2 minute application work ======================
+
+GCInfo{gcName='G1 Young Generation', gcStartTime=139, gcEndTime=157, gcDuration=18}
+GCInfo{gcName='G1 Young Generation', gcStartTime=9188, gcEndTime=9229, gcDuration=41}
+GCInfo{gcName='G1 Young Generation', gcStartTime=18258, gcEndTime=18284, gcDuration=26}
+GCInfo{gcName='G1 Young Generation', gcStartTime=27320, gcEndTime=27354, gcDuration=34}
+GCInfo{gcName='G1 Young Generation', gcStartTime=45396, gcEndTime=45434, gcDuration=38}
+GCInfo{gcName='G1 Young Generation', gcStartTime=63498, gcEndTime=63526, gcDuration=28}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81582, gcEndTime=81609, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81625, gcEndTime=81640, gcDuration=15}
+GCInfo{gcName='G1 Young Generation', gcStartTime=117745, gcEndTime=117796, gcDuration=51}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 9 Minor total duration 278
+
+====================== 3 minute application work ======================
+
+GCInfo{gcName='G1 Young Generation', gcStartTime=139, gcEndTime=157, gcDuration=18}
+GCInfo{gcName='G1 Young Generation', gcStartTime=9188, gcEndTime=9229, gcDuration=41}
+GCInfo{gcName='G1 Young Generation', gcStartTime=18258, gcEndTime=18284, gcDuration=26}
+GCInfo{gcName='G1 Young Generation', gcStartTime=27320, gcEndTime=27354, gcDuration=34}
+GCInfo{gcName='G1 Young Generation', gcStartTime=45396, gcEndTime=45434, gcDuration=38}
+GCInfo{gcName='G1 Young Generation', gcStartTime=63498, gcEndTime=63526, gcDuration=28}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81582, gcEndTime=81609, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81625, gcEndTime=81640, gcDuration=15}
+GCInfo{gcName='G1 Young Generation', gcStartTime=117745, gcEndTime=117796, gcDuration=51}
+GCInfo{gcName='G1 Young Generation', gcStartTime=126814, gcEndTime=126838, gcDuration=24}
+GCInfo{gcName='G1 Young Generation', gcStartTime=135871, gcEndTime=135898, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=172004, gcEndTime=172041, gcDuration=37}
+GCInfo{gcName='G1 Young Generation', gcStartTime=172059, gcEndTime=172080, gcDuration=21}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 13 Minor total duration 387
+
+====================== 4 minute application work ======================
+
+GCInfo{gcName='G1 Young Generation', gcStartTime=139, gcEndTime=157, gcDuration=18}
+GCInfo{gcName='G1 Young Generation', gcStartTime=9188, gcEndTime=9229, gcDuration=41}
+GCInfo{gcName='G1 Young Generation', gcStartTime=18258, gcEndTime=18284, gcDuration=26}
+GCInfo{gcName='G1 Young Generation', gcStartTime=27320, gcEndTime=27354, gcDuration=34}
+GCInfo{gcName='G1 Young Generation', gcStartTime=45396, gcEndTime=45434, gcDuration=38}
+GCInfo{gcName='G1 Young Generation', gcStartTime=63498, gcEndTime=63526, gcDuration=28}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81582, gcEndTime=81609, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81625, gcEndTime=81640, gcDuration=15}
+GCInfo{gcName='G1 Young Generation', gcStartTime=117745, gcEndTime=117796, gcDuration=51}
+GCInfo{gcName='G1 Young Generation', gcStartTime=126814, gcEndTime=126838, gcDuration=24}
+GCInfo{gcName='G1 Young Generation', gcStartTime=135871, gcEndTime=135898, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=172004, gcEndTime=172041, gcDuration=37}
+GCInfo{gcName='G1 Young Generation', gcStartTime=172059, gcEndTime=172080, gcDuration=21}
+GCInfo{gcName='G1 Young Generation', gcStartTime=199131, gcEndTime=199147, gcDuration=16}
+GCInfo{gcName='G1 Young Generation', gcStartTime=208180, gcEndTime=208220, gcDuration=40}
+GCInfo{gcName='G1 Young Generation', gcStartTime=208231, gcEndTime=208239, gcDuration=8}
+GCInfo{gcName='G1 Young Generation', gcStartTime=217300, gcEndTime=217336, gcDuration=36}
+GCInfo{gcName='G1 Young Generation', gcStartTime=226365, gcEndTime=226482, gcDuration=117}
+GCInfo{gcName='G1 Young Generation', gcStartTime=235509, gcEndTime=235705, gcDuration=196}
+GCInfo{gcName='G1 Young Generation', gcStartTime=235705, gcEndTime=235746, gcDuration=41}
+GCInfo{gcName='G1 Old Generation', gcStartTime=235746, gcEndTime=236182, gcDuration=436}
+Major total cleanUp 1 Major total duration 436
+Minor total cleanUp 20 Minor total duration 841
+
+====================== 5 minute application work ======================
+
+GCInfo{gcName='G1 Young Generation', gcStartTime=139, gcEndTime=157, gcDuration=18}
+GCInfo{gcName='G1 Young Generation', gcStartTime=9188, gcEndTime=9229, gcDuration=41}
+GCInfo{gcName='G1 Young Generation', gcStartTime=18258, gcEndTime=18284, gcDuration=26}
+GCInfo{gcName='G1 Young Generation', gcStartTime=27320, gcEndTime=27354, gcDuration=34}
+GCInfo{gcName='G1 Young Generation', gcStartTime=45396, gcEndTime=45434, gcDuration=38}
+GCInfo{gcName='G1 Young Generation', gcStartTime=63498, gcEndTime=63526, gcDuration=28}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81582, gcEndTime=81609, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=81625, gcEndTime=81640, gcDuration=15}
+GCInfo{gcName='G1 Young Generation', gcStartTime=117745, gcEndTime=117796, gcDuration=51}
+GCInfo{gcName='G1 Young Generation', gcStartTime=126814, gcEndTime=126838, gcDuration=24}
+GCInfo{gcName='G1 Young Generation', gcStartTime=135871, gcEndTime=135898, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=172004, gcEndTime=172041, gcDuration=37}
+GCInfo{gcName='G1 Young Generation', gcStartTime=172059, gcEndTime=172080, gcDuration=21}
+GCInfo{gcName='G1 Young Generation', gcStartTime=199131, gcEndTime=199147, gcDuration=16}
+GCInfo{gcName='G1 Young Generation', gcStartTime=208180, gcEndTime=208220, gcDuration=40}
+GCInfo{gcName='G1 Young Generation', gcStartTime=208231, gcEndTime=208239, gcDuration=8}
+GCInfo{gcName='G1 Young Generation', gcStartTime=217300, gcEndTime=217336, gcDuration=36}
+GCInfo{gcName='G1 Young Generation', gcStartTime=226365, gcEndTime=226482, gcDuration=117}
+GCInfo{gcName='G1 Young Generation', gcStartTime=235509, gcEndTime=235705, gcDuration=196}
+GCInfo{gcName='G1 Young Generation', gcStartTime=235705, gcEndTime=235746, gcDuration=41}
+GCInfo{gcName='G1 Old Generation', gcStartTime=235746, gcEndTime=236182, gcDuration=436}
+GCInfo{gcName='G1 Young Generation', gcStartTime=254207, gcEndTime=254241, gcDuration=34}
+GCInfo{gcName='G1 Young Generation', gcStartTime=263272, gcEndTime=263298, gcDuration=26}
+GCInfo{gcName='G1 Young Generation', gcStartTime=272312, gcEndTime=272322, gcDuration=10}
+GCInfo{gcName='G1 Young Generation', gcStartTime=281335, gcEndTime=281367, gcDuration=32}
+GCInfo{gcName='G1 Young Generation', gcStartTime=290386, gcEndTime=290413, gcDuration=27}
+GCInfo{gcName='G1 Young Generation', gcStartTime=299430, gcEndTime=299471, gcDuration=41}
+GCInfo{gcName='G1 Young Generation', gcStartTime=299480, gcEndTime=299574, gcDuration=94}
+Major total cleanUp 1 Major total duration 436
+Minor total cleanUp 27 Minor total duration 1105
+
+
+Exception in thread "Thread-0" java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3210)
+	at java.util.Arrays.copyOf(Arrays.java:3181)
+	at java.util.ArrayList.grow(ArrayList.java:261)
+	at java.util.ArrayList.ensureExplicitCapacity(ArrayList.java:235)
+	at java.util.ArrayList.ensureCapacityInternal(ArrayList.java:227)
+	at java.util.ArrayList.add(ArrayList.java:458)
+	at ru.enovikow.otus.FillList.run(FillList.java:21)

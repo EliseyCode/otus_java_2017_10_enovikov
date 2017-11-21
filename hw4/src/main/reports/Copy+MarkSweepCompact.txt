@@ -1,0 +1,65 @@
+-Xms256m
+-Xmx256m
+-XX:MaxMetaspaceSize=256m
+-XX:+UseSerialGC
+
+====================== 1 minute application work ======================
+
+GCInfo{gcName='Copy', gcStartTime=27185, gcEndTime=27259, gcDuration=74}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 1 Minor total duration 74
+
+====================== 2 minute application work ======================
+
+GCInfo{gcName='Copy', gcStartTime=27185, gcEndTime=27259, gcDuration=74}
+GCInfo{gcName='Copy', gcStartTime=72318, gcEndTime=72398, gcDuration=80}
+GCInfo{gcName='Copy', gcStartTime=108464, gcEndTime=108588, gcDuration=124}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 3 Minor total duration 278
+
+====================== 3 minute application work ======================
+
+GCInfo{gcName='Copy', gcStartTime=27185, gcEndTime=27259, gcDuration=74}
+GCInfo{gcName='Copy', gcStartTime=72318, gcEndTime=72398, gcDuration=80}
+GCInfo{gcName='Copy', gcStartTime=108464, gcEndTime=108588, gcDuration=124}
+GCInfo{gcName='Copy', gcStartTime=144634, gcEndTime=144748, gcDuration=114}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 4 Minor total duration 392
+
+====================== 4 minute application work ======================
+
+GCInfo{gcName='Copy', gcStartTime=27185, gcEndTime=27259, gcDuration=74}
+GCInfo{gcName='Copy', gcStartTime=72318, gcEndTime=72398, gcDuration=80}
+GCInfo{gcName='Copy', gcStartTime=108464, gcEndTime=108588, gcDuration=124}
+GCInfo{gcName='Copy', gcStartTime=144634, gcEndTime=144748, gcDuration=114}
+GCInfo{gcName='Copy', gcStartTime=198825, gcEndTime=198825, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=198825, gcEndTime=199139, gcDuration=314}
+GCInfo{gcName='Copy', gcStartTime=226190, gcEndTime=226190, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=226190, gcEndTime=226497, gcDuration=307}
+Major total cleanUp 2 Major total duration 621
+Minor total cleanUp 6 Minor total duration 392
+
+====================== 5 minute application work ======================
+
+GCInfo{gcName='Copy', gcStartTime=27185, gcEndTime=27259, gcDuration=74}
+GCInfo{gcName='Copy', gcStartTime=72318, gcEndTime=72398, gcDuration=80}
+GCInfo{gcName='Copy', gcStartTime=108464, gcEndTime=108588, gcDuration=124}
+GCInfo{gcName='Copy', gcStartTime=144634, gcEndTime=144748, gcDuration=114}
+GCInfo{gcName='Copy', gcStartTime=198825, gcEndTime=198825, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=198825, gcEndTime=199139, gcDuration=314}
+GCInfo{gcName='Copy', gcStartTime=226190, gcEndTime=226190, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=226190, gcEndTime=226497, gcDuration=307}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=271948, gcEndTime=272261, gcDuration=313}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=299514, gcEndTime=299908, gcDuration=394}
+Major total cleanUp 4 Major total duration 1328
+Minor total cleanUp 6 Minor total duration 392
+
+
+Exception in thread "Thread-0" java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3210)
+	at java.util.Arrays.copyOf(Arrays.java:3181)
+	at java.util.ArrayList.grow(ArrayList.java:261)
+	at java.util.ArrayList.ensureExplicitCapacity(ArrayList.java:235)
+	at java.util.ArrayList.ensureCapacityInternal(ArrayList.java:227)
+	at java.util.ArrayList.add(ArrayList.java:458)
+	at ru.enovikow.otus.FillList.run(FillList.java:21)

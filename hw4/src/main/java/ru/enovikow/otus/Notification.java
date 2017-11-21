@@ -9,14 +9,16 @@ import java.util.List;
 
 public class Notification implements NotificationListener {
 
-    List<GCInfo> notifications = new ArrayList<>();
+    private List<GCInfo> notifications = new ArrayList<>();
 
     @Override
     public void handleNotification(javax.management.Notification notification, Object handback) {
 
         GarbageCollectionNotificationInfo info = GarbageCollectionNotificationInfo.from((CompositeData) notification.getUserData());
 
-        notifications.add(new GCInfo(info.getGcName(), info.getGcAction(), info.getGcInfo().getStartTime(), info.getGcInfo().getEndTime(), info.getGcInfo().getDuration()));
+        GCType gcType = info.getGcAction().equals("end of minor GC") ? GCType.MINOR_GC : GCType.MAJOR_GC;
+
+        notifications.add(new GCInfo(gcType, info.getGcName(), info.getGcInfo().getStartTime(), info.getGcInfo().getEndTime(), info.getGcInfo().getDuration()));
 
     }
 

@@ -4,33 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FillList extends Thread {
-    List<String> list = new ArrayList<>();
-    private final static int ARRAY_VALUE = 500_000;
+    private List<String> list = new ArrayList<>();
+    private final static int FILL_ARRAY_VALUE = 500_000;
     private final static int REMOVE_VALUE = 250_000;
 
-    public FillList() {
+    FillList() {
         start();
     }
 
     @Override
     public void run() {
-        while (true) {
-            System.out.println("start");
-            for (int i = 0; i < ARRAY_VALUE; i++) {
-                list.add(new String());
-            }
+        boolean isAlive = true;
 
-            System.out.println("500k added " + list.size());
-
-            for (int i = list.size() - 1, j = 0; j < REMOVE_VALUE ; i--, j++) {
-                list.remove(i);
-            }
-            System.out.println("removed list size: " + list.size());
+        while (isAlive) {
             try {
-//                System.out.println(Runtime.getRuntime().freeMemory());
-                Thread.sleep(10000);
-                System.out.println("After Sleep");
+
+                for (int i = 0; i < FILL_ARRAY_VALUE; i++) {
+                    list.add(new String());
+                }
+
+                System.out.println("list size after 500k elements was added: " + list.size());
+
+                for (int i = list.size() - 1, j = 0; j < REMOVE_VALUE; i--, j++) {
+                    list.remove(i);
+                }
+
+                System.out.println("list size after removing: : " + list.size() + "\n");
+
+                Thread.sleep(9000);
             } catch (InterruptedException e) {
+                isAlive = false;
                 e.printStackTrace();
             }
         }

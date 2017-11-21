@@ -1,0 +1,65 @@
+-Xms256m
+-Xmx256m
+-XX:MaxMetaspaceSize=256m
+-XX:+UseParNewGC
+
+====================== 1 minute application work ======================
+
+GCInfo{gcName='ParNew', gcStartTime=27185, gcEndTime=27245, gcDuration=60}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 1 Minor total duration 60
+
+====================== 2 minute application work ======================
+
+GCInfo{gcName='ParNew', gcStartTime=27185, gcEndTime=27245, gcDuration=60}
+GCInfo{gcName='ParNew', gcStartTime=72285, gcEndTime=72373, gcDuration=88}
+GCInfo{gcName='ParNew', gcStartTime=108429, gcEndTime=108514, gcDuration=85}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 3 Minor total duration 233
+
+====================== 3 minute application work ======================
+
+GCInfo{gcName='ParNew', gcStartTime=27185, gcEndTime=27245, gcDuration=60}
+GCInfo{gcName='ParNew', gcStartTime=72285, gcEndTime=72373, gcDuration=88}
+GCInfo{gcName='ParNew', gcStartTime=108429, gcEndTime=108514, gcDuration=85}
+GCInfo{gcName='ParNew', gcStartTime=144562, gcEndTime=144654, gcDuration=92}
+Major total cleanUp 0 Major total duration 0
+Minor total cleanUp 4 Minor total duration 325
+
+====================== 4 minute application work ======================
+
+GCInfo{gcName='ParNew', gcStartTime=27185, gcEndTime=27245, gcDuration=60}
+GCInfo{gcName='ParNew', gcStartTime=72285, gcEndTime=72373, gcDuration=88}
+GCInfo{gcName='ParNew', gcStartTime=108429, gcEndTime=108514, gcDuration=85}
+GCInfo{gcName='ParNew', gcStartTime=144562, gcEndTime=144654, gcDuration=92}
+GCInfo{gcName='ParNew', gcStartTime=198740, gcEndTime=198740, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=198740, gcEndTime=199050, gcDuration=310}
+GCInfo{gcName='ParNew', gcStartTime=226099, gcEndTime=226099, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=226099, gcEndTime=226407, gcDuration=308}
+Major total cleanUp 2 Major total duration 618
+Minor total cleanUp 6 Minor total duration 325
+
+====================== 5 minute application work ======================
+
+GCInfo{gcName='ParNew', gcStartTime=27185, gcEndTime=27245, gcDuration=60}
+GCInfo{gcName='ParNew', gcStartTime=72285, gcEndTime=72373, gcDuration=88}
+GCInfo{gcName='ParNew', gcStartTime=108429, gcEndTime=108514, gcDuration=85}
+GCInfo{gcName='ParNew', gcStartTime=144562, gcEndTime=144654, gcDuration=92}
+GCInfo{gcName='ParNew', gcStartTime=198740, gcEndTime=198740, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=198740, gcEndTime=199050, gcDuration=310}
+GCInfo{gcName='ParNew', gcStartTime=226099, gcEndTime=226099, gcDuration=0}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=226099, gcEndTime=226407, gcDuration=308}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=271766, gcEndTime=272090, gcDuration=324}
+GCInfo{gcName='MarkSweepCompact', gcStartTime=299287, gcEndTime=299679, gcDuration=392}
+Major total cleanUp 4 Major total duration 1334
+Minor total cleanUp 6 Minor total duration 325
+
+
+Exception in thread "Thread-0" java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3210)
+	at java.util.Arrays.copyOf(Arrays.java:3181)
+	at java.util.ArrayList.grow(ArrayList.java:261)
+	at java.util.ArrayList.ensureExplicitCapacity(ArrayList.java:235)
+	at java.util.ArrayList.ensureCapacityInternal(ArrayList.java:227)
+	at java.util.ArrayList.add(ArrayList.java:458)
+	at ru.enovikow.otus.FillList.run(FillList.java:21)
