@@ -33,7 +33,5 @@ public class Main {
 
         System.out.println("Major total cleanUp " + GCInfo.getMajorTotalCleanUp() + " Major total duration " + GCInfo.getMajorTotalDuration());
         System.out.println("Minor total cleanUp " + GCInfo.getMinorTotalCleanUp() + " Minor total duration " + GCInfo.getMinorTotalDuration());
-
-//        list.stream().filter(art -> list.forEach())
     }
 }
