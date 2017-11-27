@@ -40,16 +40,17 @@ public class ATMImplTest {
 
     @Test
     public void getIn() throws Exception {
-        atm.insertSum(2250);
-        Assert.assertEquals(52, atm.getOneThousandCellSize());
+        Money one = new OneThousand();
+        atm.insertSum(one);
+        Assert.assertEquals(51, atm.getOneThousandCellSize());
         Assert.assertEquals(100, atm.getFiveHundredCellSize());
-        Assert.assertEquals(152, atm.getOneHundredCellSize());
-        Assert.assertEquals(61, atm.getFiftyCellSize());
+        Assert.assertEquals(150, atm.getOneHundredCellSize());
+        Assert.assertEquals(60, atm.getFiftyCellSize());
     }
 
     @Test
     public void giveOut() throws Exception {
-        getIn();
+//        getIn();
 
     }
 

@@ -18,17 +18,53 @@ public class ATMImpl implements ATM {
     }
 
 
-    public void insertSum(int value) {
+    public void insertSum(Money note) throws Exception {
+        if (note instanceof OneThousand) {
+            oneThousandCell.add((OneThousand) note);
+        } else if (note instanceof FiveHundred) {
+            fiveHundredCell.add((FiveHundred) note);
+        } else if (note instanceof OneHundred) {
+            oneHundredCell.add((OneHundred) note);
+        } else if (note instanceof Fifty) {
+            fiftyCell.add((Fifty) note);
+        } else {
+            throw new Exception();
+        }
 
-        int[] totalNotes = XUtils.getTotalNotesCount(value);
-
-        addNotes(totalNotes);
     }
 
     public void giveOutSum(int value) {
-        int[] totalNotes = XUtils.getTotalNotesCount(value);
-        giveOutNotes(totalNotes);
+//        int[] totalNotes = XUtils.getTotalNotesCount(value);
+//        giveOutNotes(totalNotes);
+//            int thousands = getOneThousandCellSize();
+//            int fiveHundreds = getFiveHundredCellSize();
+//            int oneHundreds = getOneHundredCellSize();
+//            int fifty = getFiftyCellSize();
+
+            int[] availableNotes = new int[] {getOneThousandCellSize(), getFiveHundredCellSize(), getOneHundredCellSize(), getFiftyCellSize()};
+            int[] toGive = XUtils.sumToBeGiven(availableNotes, value);
+
+
     }
+
+//    public static int[] getTotalNotesCount(int value) {
+//        int[] values = new int[TOTAL_CELL_VALUE];
+//
+//        int thousands = value / 1000;
+//        value -= thousands * 1000;
+//        int fiveHundreds = value / 500;
+//        value -= fiveHundreds * 500;
+//        int oneHundreds = value / 100;
+//        value -= oneHundreds * 100;
+//        int fifty = value / 50;
+//        value -= fifty * 50;
+//
+//        values[0] = thousands;
+//        values[1] = fiveHundreds;
+//        values[2] = oneHundreds;
+//        values[3] = fifty;
+//        return values;
+//    }
 
     private void giveOutNotes(int[] totalNotes) {
 
