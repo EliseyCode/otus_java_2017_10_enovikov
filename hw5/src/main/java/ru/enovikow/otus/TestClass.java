@@ -6,18 +6,24 @@ import ru.enovikow.otus.annotations.Test;
 
 public class TestClass {
 
-    @Before(testResult = "Befor")
+    @Before()
     public static String beforeString() {
         return "Before";
     }
 
-    @Test(testResult = "Test")
+    @Test()
     public static String testString() {
         return "Test";
     }
 
-    @After(testResult = "After")
+    @Test()
+    public static String test2String() {
+        return "Test";
+    }
+
+    @After()
     public static String afterString() {
         return "After";
     }
+
 }
