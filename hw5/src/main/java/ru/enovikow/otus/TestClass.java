@@ -25,5 +25,9 @@ public class TestClass {
     public static String afterString() {
         return "After";
     }
+//    @After()
+//    public static String afterStringTwo() {
+//        return "After";
+//    }
 
 }

@@ -1,13 +1,14 @@
 package ru.enovikow.otus;
 
+import ru.enovikow.otus.annotations.After;
+import ru.enovikow.otus.annotations.Before;
+import ru.enovikow.otus.annotations.Test;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("SameParameterValue")
@@ -82,10 +83,6 @@ class ReflectionHelper {
         return null;
     }
 
-    static Annotation[] getAnnotations(Method method) {
-        return method.getDeclaredAnnotations();
-    }
-
     static Set<Method> getMethods(Class clazz) {
         return new HashSet<>(Arrays.asList(clazz.getDeclaredMethods()));
     }
@@ -95,5 +92,22 @@ class ReflectionHelper {
                 .map(Object::getClass)
                 .collect(Collectors.toList());
         return classes.toArray(new Class<?>[classes.size()]);
+    }
+
+    static Annotation getAnnotation(Method method) throws Exception {
+        return method.getDeclaredAnnotations()[0];
+    }
+
+    static boolean haveBeforeOrTestOrAfterAnnotation(Method method) {
+        Annotation[] annotations = method.getDeclaredAnnotations();
+        for (Annotation annotation : annotations) {
+            if (annotation.annotationType().equals(Before.class)
+                    || annotation.annotationType().equals(Test.class)
+                    || annotation.annotationType().equals(After.class)) {
+
+                return true;
+            }
+        }
+        return false;
     }
 }

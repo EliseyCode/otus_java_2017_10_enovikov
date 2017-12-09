@@ -1,12 +1,5 @@
 package ru.enovikow.otus;
 
-//import com.sun.org.apache.bcel.internal.util.ClassPath;
-
-import ru.enovikow.otus.annotations.After;
-import ru.enovikow.otus.annotations.Before;
-import ru.enovikow.otus.annotations.Test;
-
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,98 +8,57 @@ import java.util.Set;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.reflect.ClassPath;
+import ru.enovikow.otus.annotations.After;
+import ru.enovikow.otus.annotations.Before;
+import ru.enovikow.otus.annotations.Test;
 
 class MainTest {
 
     static void start(Class clazz) throws Exception {
-        if (haveMultiplyBeforeAfterIllegalAnnotations(clazz)) {
-            throw new Exception("IllegalAnnotationsState");
-        } else {
-            initTests(clazz);
-        }
+        initTests(clazz);
     }
 
     private static void initTests(Class clazz) throws Exception {
-
         Object instance = ReflectionHelper.instantiate(clazz);
-        Method[] methods = clazz.getDeclaredMethods();
-        Method methodWithAfter = null, methodWithBefore = null;
+        Method[] methods = instance.getClass().getDeclaredMethods();
+        Method methodWithBefore = null, methodWithAfter = null;
         List<Method> methodTestList = new ArrayList();
 
+        int beforeAnnotationCounter = 0;
+        int afterAnnotationCounter = 0;
+        int testAnnotationCounter = 0;
+
         for (Method method : methods) {
-            if (haveBeforeAnnotation(method)) {
+
+            if (ReflectionHelper.getAnnotation(method).annotationType().equals(Before.class)) {
                 methodWithBefore = method;
+                beforeAnnotationCounter++;
             }
-            if (haveAfterAnnotation(method)) {
+            if (ReflectionHelper.getAnnotation(method).annotationType().equals(After.class)) {
                 methodWithAfter = method;
+                afterAnnotationCounter++;
             }
-            if (haveTestAnnotation(method)) {
+            if (ReflectionHelper.getAnnotation(method).annotationType().equals(Test.class)) {
                 methodTestList.add(method);
+                testAnnotationCounter++;
             }
         }
 
-        for (Method m : methodTestList) {
+        if (beforeAnnotationCounter > 1 || afterAnnotationCounter > 1 || testAnnotationCounter == 0) {
+            throw new Exception("IllegalAnnotationsState");
+        }
+
+        for (Method method : methodTestList) {
             if (methodWithBefore != null) {
                 methodWithBefore.invoke(instance);
             }
 
-            m.invoke(instance);
+            method.invoke(instance);
 
             if (methodWithAfter != null) {
                 methodWithAfter.invoke(instance);
             }
         }
-    }
-
-    private static boolean haveMultiplyBeforeAfterIllegalAnnotations(Class clazz) {
-        Method[] methods = clazz.getDeclaredMethods();
-        int beforeAnnotationCount = 0;
-        int afterAnnotationCount = 0;
-        int testAnnotation = 0;
-
-        for (Method method : methods) {
-            if (haveBeforeAnnotation(method)) {
-                beforeAnnotationCount++;
-            }
-            if (haveAfterAnnotation(method)) {
-                afterAnnotationCount++;
-            }
-            if (haveTestAnnotation(method)) {
-                testAnnotation++;
-            }
-        }
-
-        return beforeAnnotationCount > 1 || afterAnnotationCount > 1 || testAnnotation == 0;
-    }
-
-    private static boolean haveBeforeAnnotation(Method method) {
-        Annotation[] annotations = method.getDeclaredAnnotations();
-        for (Annotation annotation : annotations) {
-            if (annotation.annotationType().equals(Before.class)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean haveAfterAnnotation(Method method) {
-        Annotation[] annotations = method.getDeclaredAnnotations();
-        for (Annotation annotation : annotations) {
-            if (annotation.annotationType().equals(After.class)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean haveTestAnnotation(Method method) {
-        Annotation[] annotations = method.getDeclaredAnnotations();
-        for (Annotation annotation : annotations) {
-            if (annotation.annotationType().equals(Test.class)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static void start(String packageName) throws Exception {
@@ -145,7 +97,7 @@ class MainTest {
     private static boolean classHaveMethodWithTestAnnotation(Class className) {
         Method[] methods = className.getDeclaredMethods();
         for (Method m : methods) {
-            if (haveTestAnnotation(m)) {
+            if (ReflectionHelper.haveBeforeOrTestOrAfterAnnotation(m)) {
                 return true;
             }
         }
