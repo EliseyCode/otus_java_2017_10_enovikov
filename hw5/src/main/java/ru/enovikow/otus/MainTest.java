@@ -15,11 +15,10 @@ import ru.enovikow.otus.annotations.Test;
 class MainTest {
 
     static void start(Class clazz) throws Exception {
-        initTests(clazz);
+        initTests(ReflectionHelper.instantiate(clazz));
     }
 
-    private static void initTests(Class clazz) throws Exception {
-        Object instance = ReflectionHelper.instantiate(clazz);
+    private static void initTests(Object instance) throws Exception {
         Method[] methods = instance.getClass().getDeclaredMethods();
         Method methodWithBefore = null, methodWithAfter = null;
         List<Method> methodTestList = new ArrayList();
@@ -49,6 +48,7 @@ class MainTest {
         }
 
         for (Method method : methodTestList) {
+
             if (methodWithBefore != null) {
                 methodWithBefore.invoke(instance);
             }
@@ -97,7 +97,7 @@ class MainTest {
     private static boolean classHaveMethodWithTestAnnotation(Class className) {
         Method[] methods = className.getDeclaredMethods();
         for (Method m : methods) {
-            if (ReflectionHelper.haveBeforeOrTestOrAfterAnnotation(m)) {
+            if (ReflectionHelper.haveBeforeOrTestOrAfterAnnotation(m, Test.class)) {
                 return true;
             }
         }

@@ -98,13 +98,10 @@ class ReflectionHelper {
         return method.getDeclaredAnnotations()[0];
     }
 
-    static boolean haveBeforeOrTestOrAfterAnnotation(Method method) {
+    static boolean haveBeforeOrTestOrAfterAnnotation(Method method, Class<? extends Annotation> annotationClass) {
         Annotation[] annotations = method.getDeclaredAnnotations();
         for (Annotation annotation : annotations) {
-            if (annotation.annotationType().equals(Before.class)
-                    || annotation.annotationType().equals(Test.class)
-                    || annotation.annotationType().equals(After.class)) {
-
+            if (annotation.annotationType().equals(annotationClass)) {
                 return true;
             }
         }
