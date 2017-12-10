@@ -1,9 +1,5 @@
 package ru.enovikow.otus;
 
-import ru.enovikow.otus.annotations.After;
-import ru.enovikow.otus.annotations.Before;
-import ru.enovikow.otus.annotations.Test;
-
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
