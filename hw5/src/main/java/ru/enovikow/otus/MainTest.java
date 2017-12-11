@@ -15,11 +15,11 @@ import ru.enovikow.otus.annotations.Test;
 class MainTest {
 
     static void start(Class clazz) throws Exception {
-        initTests(ReflectionHelper.instantiate(clazz));
+        initTests(clazz);
     }
 
-    private static void initTests(Object instance) throws Exception {
-        Method[] methods = instance.getClass().getDeclaredMethods();
+    private static void initTests(Class clazz) throws Exception {
+        Method[] methods = clazz.getDeclaredMethods();
         Method methodWithBefore = null, methodWithAfter = null;
         List<Method> methodTestList = new ArrayList();
 
@@ -48,6 +48,7 @@ class MainTest {
         }
 
         for (Method method : methodTestList) {
+            Object instance = ReflectionHelper.instantiate(clazz);
 
             if (methodWithBefore != null) {
                 methodWithBefore.invoke(instance);
