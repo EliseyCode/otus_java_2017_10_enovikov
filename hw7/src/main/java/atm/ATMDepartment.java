@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ATMDepartment {
     private static ATMDepartment atmDepartment;
-    private final List<Observer> observers = new ArrayList<>();
+    protected final List<Observer> observers = new ArrayList<>();
     private static final String RESTORE_TO_BASE_STATE = "restore";
 
     public static ATMDepartment getATMDepartment() {
