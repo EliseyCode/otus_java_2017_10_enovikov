@@ -2,7 +2,7 @@ package atm;
 
 import java.util.Iterator;
 
-public class Cell implements Comparable<Cell>, Iterable<Cell>{
+public class Cell implements Comparable<Cell>, Iterable<Cell>, Cloneable {
     private final int nominal;
     private int count;
 
@@ -13,6 +13,16 @@ public class Cell implements Comparable<Cell>, Iterable<Cell>{
         this.count = count;
     }
 
+    @Override
+    public Cell clone() {
+        try {
+            return (Cell) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public boolean withdraw(int requested) {
         int expectedCount = Math.min(requested / nominal, count);
         int expectedCash = expectedCount * nominal;
@@ -20,7 +30,7 @@ public class Cell implements Comparable<Cell>, Iterable<Cell>{
         if (requested != expectedCash) {
             nextCellResult = next != null && next.withdraw(requested - expectedCash);
         }
-        if(nextCellResult) {
+        if (nextCellResult) {
             count = count - expectedCount;
             return true;
         }

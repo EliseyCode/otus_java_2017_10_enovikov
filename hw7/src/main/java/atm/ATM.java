@@ -1,25 +1,29 @@
 package atm;
 
-
+import event.Event;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class ATM {
+public class ATM implements Observer {
     private final Cell first;
+    private Cell current;
 
     public ATM(List<Cell> cells) {
+
         Collections.sort(cells);
         first = cells.get(0);
         linkCells(cells);
+
+        current = first.clone();
     }
 
     public boolean withdraw(int requested) {
-        return first.withdraw(requested);
+        return current.withdraw(requested);
     }
 
     public int getBalance() {
-        Iterator<Cell> iterator = first.iterator();
+        Iterator<Cell> iterator = current.iterator();
         int balance = 0;
         while (iterator.hasNext()) {
             balance += iterator.next().getBalance();
@@ -35,5 +39,16 @@ public class ATM {
             cellA.setNext(cellB);
             cellA = cellB;
         }
+    }
+
+    @Override
+    public void notify(Event event) {
+        if ("restore".equals(event.getEvent())) {
+            restoreATM();
+        }
+    }
+
+    private void restoreATM() {
+        current = first.clone();
     }
 }
