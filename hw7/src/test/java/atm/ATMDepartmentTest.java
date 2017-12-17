@@ -42,12 +42,12 @@ public class ATMDepartmentTest {
 
     @Test
     public void registerAndUnregisterCount() {
-        assertEquals(2, atmDepartment.observers.size());
+        assertEquals(2, atmDepartment.getObservers().size());
         atmDepartment.register(new ATM(cells));
-        assertEquals(3, atmDepartment.observers.size());
+        assertEquals(3, atmDepartment.getObservers().size());
         atmDepartment.unregister(atm);
         atmDepartment.unregister(atm2);
-        assertEquals(1, atmDepartment.observers.size());
+        assertEquals(1, atmDepartment.getObservers().size());
     }
 
     @Test

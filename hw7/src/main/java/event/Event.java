@@ -1,5 +1,8 @@
 package event;
 
+import atm.ATM;
+
 public abstract class Event {
-public abstract String getEvent();
+
+public abstract void execute(ATM atm);
 }

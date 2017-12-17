@@ -2,10 +2,9 @@ package event;
 
 import atm.ATM;
 
-public class RestoreAllATMEvent extends Event {
-
+public class CollectATMBalance extends Event {
     @Override
     public void execute(ATM atm) {
-        atm.restoreATM();
+        atm.getBalance();
     }
 }

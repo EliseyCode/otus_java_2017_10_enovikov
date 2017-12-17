@@ -23,7 +23,7 @@ public class Cell implements Comparable<Cell>, Iterable<Cell>, Cloneable {
         return null;
     }
 
-    public boolean withdraw(int requested) {
+    boolean withdraw(int requested) {
         int expectedCount = Math.min(requested / nominal, count);
         int expectedCash = expectedCount * nominal;
         boolean nextCellResult = true;
@@ -37,7 +37,7 @@ public class Cell implements Comparable<Cell>, Iterable<Cell>, Cloneable {
         return false;
     }
 
-    public int getNominal() {
+    private int getNominal() {
         return nominal;
     }
 
@@ -45,12 +45,12 @@ public class Cell implements Comparable<Cell>, Iterable<Cell>, Cloneable {
         return count;
     }
 
-    public void setNext(Cell next) {
+    void setNext(Cell next) {
         this.next = next;
     }
 
-    public int getBalance() {
-        return count * nominal;
+    int getBalance() {
+        return count * nominal + (next != null ? next.getBalance() : 0);
     }
 
     @Override

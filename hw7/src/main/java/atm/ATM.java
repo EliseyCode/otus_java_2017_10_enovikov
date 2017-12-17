@@ -1,34 +1,33 @@
 package atm;
 
+
 import event.Event;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class ATM implements Observer {
-    private final Cell first;
-    private Cell current;
+    private Cell currentState;
+
+    private List<Memento> savedStates = new ArrayList<>();
 
     public ATM(List<Cell> cells) {
-
         Collections.sort(cells);
-        first = cells.get(0);
+        Cell initialState = cells.get(0);
         linkCells(cells);
+        savedStates.add(new Memento(initialState));
+        currentState = initialState;
 
-        current = first.clone();
     }
 
     public boolean withdraw(int requested) {
-        return current.withdraw(requested);
+        return currentState.withdraw(requested);
     }
 
     public int getBalance() {
-        Iterator<Cell> iterator = current.iterator();
-        int balance = 0;
-        while (iterator.hasNext()) {
-            balance += iterator.next().getBalance();
-        }
-        return balance;
+        return currentState.getBalance();
     }
 
     private void linkCells(List<Cell> cells) {
@@ -43,12 +42,10 @@ public class ATM implements Observer {
 
     @Override
     public void notify(Event event) {
-        if ("restore".equals(event.getEvent())) {
-            restoreATM();
-        }
+        event.execute(this);
     }
 
-    private void restoreATM() {
-        current = first.clone();
+    public void restoreATM() {
+        currentState = savedStates.get(0).getInitialState();
     }
 }

@@ -7,8 +7,7 @@ import java.util.List;
 
 public class ATMDepartment {
     private static ATMDepartment atmDepartment;
-    protected final List<Observer> observers = new ArrayList<>();
-    private static final String RESTORE_TO_BASE_STATE = "restore";
+    private final List<Observer> observers = new ArrayList<>();
 
     public static ATMDepartment getATMDepartment() {
         if (atmDepartment == null) {
@@ -22,18 +21,16 @@ public class ATMDepartment {
         observers.add(observer);
     }
 
-    public void unregister(Observer observer) {
+    void unregister(Observer observer) {
         observers.remove(observer);
     }
 
     public void notify(Event event) {
-        if (RESTORE_TO_BASE_STATE.equals(event.getEvent())) {
-            observers.forEach(observer -> observer.notify(event));
-        }
+        observers.forEach(observer -> observer.notify(event));
     }
 
-    public void collectMoney() {
-        observers.forEach(observer -> System.out.println(((ATM) observer).getBalance()));
+    List<Observer> getObservers() {
+        return observers;
     }
 
     private ATMDepartment() {

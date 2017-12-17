@@ -1,6 +1,7 @@
 import atm.ATM;
 import atm.ATMDepartment;
 import atm.Cell;
+import event.CollectATMBalance;
 import event.RestoreAllATMEvent;
 
 import java.util.ArrayList;
@@ -42,10 +43,10 @@ public class Main {
         System.out.println("First ATM after " + atm.getBalance());
         System.out.println("Second ATM after " + atm2.getBalance());
 
+        atmDepartment.notify(new CollectATMBalance());
+
         atmDepartment.notify(new RestoreAllATMEvent());
         System.out.println("First ATM after restore " + atm.getBalance());
         System.out.println("Second ATM after restore " + atm2.getBalance());
-
-        atmDepartment.collectMoney();
     }
 }
