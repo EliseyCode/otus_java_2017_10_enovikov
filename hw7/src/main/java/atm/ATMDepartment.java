@@ -1,6 +1,7 @@
 package atm;
 
 import event.Event;
+import event.RestoreAllATMEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +26,20 @@ public class ATMDepartment {
         observers.remove(observer);
     }
 
-    public void notify(Event event) {
+    protected void notify(Event event) {
         observers.forEach(observer -> observer.notify(event));
     }
 
     List<Observer> getObservers() {
         return observers;
+    }
+
+    public int getTotalBalance() {
+        return observers.stream().mapToInt(observer -> ((ATM) observer).getBalance()).sum();
+    }
+
+    public void restoreAllATM() {
+        notify(new RestoreAllATMEvent());
     }
 
     private ATMDepartment() {
