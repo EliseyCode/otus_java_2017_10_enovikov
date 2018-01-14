@@ -1,4 +1,4 @@
-<b>Домашнее задание №8:
+<b>Домашнее задание № 8:
 JSON object writer</b> 
 
 Напишите свой json object writer (object to json string) аналогичный gson на основе javax.json или simple-json и Reflection.
