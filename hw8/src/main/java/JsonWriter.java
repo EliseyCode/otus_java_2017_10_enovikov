@@ -48,11 +48,11 @@ public class JsonWriter {
     }
 
     private String serializeString(Object jsonObject) throws IllegalAccessException {
-        return "\"" + jsonObject.toString() + "\"";// "\",";
+        return "\"" + jsonObject.toString() + "\"";
     }
 
     private String serializeNumberOrBoolean(Object jsonObject) throws IllegalAccessException {
-        return jsonObject.toString();// + ",";
+        return jsonObject.toString();
     }
 
     private String serializeCollection(Object jsonObject) throws IllegalAccessException {
