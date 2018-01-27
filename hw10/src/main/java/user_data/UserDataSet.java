@@ -1,6 +1,8 @@
 package user_data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -14,6 +16,9 @@ public class UserDataSet extends DataSet {
     @OneToOne(cascade = CascadeType.ALL)
     private AddressDataSet address;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<PhoneDataSet> phones = new ArrayList();
+
     public UserDataSet() {
 
     }
@@ -22,6 +27,11 @@ public class UserDataSet extends DataSet {
         this.name = name;
         this.age = age;
         this.address = address;
+    }
+
+    public void addPhone(PhoneDataSet phone) {
+        this.phones.add(phone);
+        phone.setUser(this);
     }
 
     public String getName() {
@@ -38,6 +48,7 @@ public class UserDataSet extends DataSet {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", address=" + address +
+                ", phones=" + phones +
                 '}';
     }
 }

@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import user_data.AddressDataSet;
 import user_data.DataSet;
+import user_data.PhoneDataSet;
 import user_data.UserDataSet;
 
 public class ConnectionHelper {
@@ -15,6 +16,7 @@ public class ConnectionHelper {
         configuration.addAnnotatedClass(DataSet.class);
         configuration.addAnnotatedClass(UserDataSet.class);
         configuration.addAnnotatedClass(AddressDataSet.class);
+        configuration.addAnnotatedClass(PhoneDataSet.class);
 
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         configuration.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
