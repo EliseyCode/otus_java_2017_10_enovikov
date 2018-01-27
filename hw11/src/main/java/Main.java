@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        CacheEngineImpl<Long, DataSet> cacheEngine = new CacheEngineImpl<>(2, 700, 700, false);
+        CacheEngineImpl<Long, DataSet> cacheEngine = new CacheEngineImpl<>(1, 700, 700, false);
 
         DBServiceImpl dbService = new DBServiceImpl(cacheEngine);
 

@@ -48,14 +48,12 @@ public class CacheEngineImpl<K, V> implements CacheEngine<K, V> {
 
     public V get(K key) {
         SoftReference<Value<V>> softReference = elements.get(key);
-        if (softReference != null) {
-            hitCount++;
-            Objects.requireNonNull(softReference.get()).setAccessed();
-            return Objects.requireNonNull(softReference.get()).getValue();
-        } else {
-            missCount++;
-            return null;
+        Value<V> softVal = softReference.get();
+        if (softVal != null) {
+            softVal.setAccessed();
+            return softVal.getValue();
         }
+        return null;
     }
 
     private TimerTask getTimerTask(final K key, Function<SoftReference<Value<V>>, Long> timeFunction) {

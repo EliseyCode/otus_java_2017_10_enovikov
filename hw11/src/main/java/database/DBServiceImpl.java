@@ -14,15 +14,11 @@ import java.util.function.Function;
 
 public class DBServiceImpl implements DBService {
     private final SessionFactory sessionFactory;
-    private CacheEngineImpl<Long, DataSet> cache;
-
-    public DBServiceImpl() {
-        sessionFactory = ConnectionHelper.getSessionFactory();
-    }
+    private final CacheEngineImpl<Long, DataSet> cache;
 
     public DBServiceImpl(CacheEngineImpl<Long, DataSet> cache) {
+        this.cache = cache;
         sessionFactory = ConnectionHelper.getSessionFactory();
-        registerCache(cache);
     }
 
     @Override
@@ -90,10 +86,6 @@ public class DBServiceImpl implements DBService {
             transaction.commit();
             return result;
         }
-    }
-
-    private void registerCache(CacheEngineImpl<Long, DataSet> cache) {
-        this.cache = cache;
     }
 
     @Override
