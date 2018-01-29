@@ -3,7 +3,6 @@ package server;
 import cache.CacheEngineImpl;
 import user_data.DataSet;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AdminServlet extends HttpServlet {
-    public static final String LOGIN_PARAMETER_NAME = "login";
-    public static final String PASSWORD_PARAMETER_NAME = "password";
+    private static final String LOGIN_PARAMETER_NAME = "login";
+    private static final String PASSWORD_PARAMETER_NAME = "password";
 
     private static final String LOGIN_VARIABLE_NAME = "log";
     private static final String PASSWORD_VARIABLE_NAME = "pass";
@@ -29,12 +28,13 @@ public class AdminServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         doPost(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @SuppressWarnings("unchecked")
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Map<String, Object> variables = new HashMap();
         String requestLogin = req.getParameter(LOGIN_PARAMETER_NAME);
         String requestPassword = req.getParameter(PASSWORD_PARAMETER_NAME);
