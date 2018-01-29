@@ -50,9 +50,11 @@ public class CacheEngineImpl<K, V> implements CacheEngine<K, V> {
         SoftReference<Value<V>> softReference = elements.get(key);
         Value<V> softVal = softReference.get();
         if (softVal != null) {
+            hitCount++;
             softVal.setAccessed();
             return softVal.getValue();
         }
+        missCount++;
         return null;
     }
 
