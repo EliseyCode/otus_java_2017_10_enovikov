@@ -17,9 +17,7 @@ public class Main {
     private final static String PUBLIC_HTML = "public_html";
 
     public static void main(String[] args) throws Exception {
-
-
-        CacheEngineImpl<Long, DataSet> cacheEngine = new CacheEngineImpl<>(1, 700, 0, true);
+        CacheEngineImpl<Long, DataSet> cacheEngine = new CacheEngineImpl<>(5, 700, 700, false);
 
         DBServiceImpl dbService = new DBServiceImpl(cacheEngine);
 
