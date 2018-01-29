@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin</title>
+</head>
+<div class="top">
+    <img src="logo.png"/>
+    <br/>
+</div>
+
+<div class="admin">
+    <form name="adminLogPass" method="POST">
+        login: <input type="text" name="login">
+        password: <input type="text" name="password">
+    </form>
+
+    <form name="loginButton" method="post">
+        <button type="button" value="submit" onclick="submitForms()" onsubmit="">Login</button>
+    </form>
+
+    <script>
+        submitForms = function () {
+            document.forms["adminLogPass"].submit();
+            return true;
+        }
+    </script>
+</div>
+</body>
+</html>
