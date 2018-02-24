@@ -7,10 +7,10 @@ public class Main {
     private static int size;
 
     static {
-        size = 500_000;
+        size = 1_000_000;
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         System.out.println("Size of empty String: " + Measuring.getSize(size, () -> new String()));
         System.out.println("Size of Object: " + Measuring.getSize(size, () -> new Object()));
@@ -23,9 +23,7 @@ public class Main {
             int[] arr = n <= 0 ? new int[1] : new int[n];
             for (int i = 0; i < n; i++) arr[i] = i;
             return arr;
-        }).forEach(m -> {
-            Measuring.printSize("Array of int[" + m.length + "]: ", () -> m.clone(), size);
-        });
+        }).forEach(m -> Measuring.printSize("Array of int[" + m.length + "]: ", () -> m.clone(), size));
     }
 
 }
